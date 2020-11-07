@@ -1,0 +1,134 @@
+<section class="home" id="home">
+  <div class="container-fluid">
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="col-md-1">
+        <h4>Show</h4>
+      </div>
+      <form class="form d-flex justify-content-center align-items-center col-md-8 " [formGroup]="myforms" >
+
+        <div class="col-md-2">
+          <select class="form-control"  formControlName="numb">
+            <option disabled>select Number</option>
+            <option selected="true" value="10" >10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <div></div>
+          <div>
+            <button class="button form-control">
+              <span class="plus"> + </span>Employee
+            </button>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div></div>
+          <div>
+            <button class="form-control button"  (click)="show()">
+              <span class="plus"> + </span> Add filter
+            </button>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div></div>
+          <div>
+            <button class="button form-control">
+              Export <span class="down"> <i class="fas fa-download"></i> </span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="tables">
+      <table class="table">
+       
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Title</th>
+            <th scope="col">Hiring Date</th>
+            <th scope="col">Gross Salary</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let emplye of empety |paginate:{itemsPerPage:numb.value, currentPage:p}">
+              <td>{{emplye?.fullName_FL}}</td>
+              <td>{{emplye?.position.name_FL}}</td>
+              <td >{{emplye?.hiringDate}}</td>
+              <td >{{emplye?.firstContractingSalary}}</td>
+            <td><i class="far fa-edit"></i> <span>Terminate</span> <Span>Suspend</Span></td>
+          </tr>
+        
+        </tbody>
+        <pagination-controls class="col-md-12" (pageChange)="p=$event"></pagination-controls>
+      </table>
+    </div>
+  </div>
+</section>
+ <div
+    class="modal fade"
+    id="popup"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div
+          class="modal-body align-items-center d-flex display justify-content-center display"
+        >
+        <form class="form" [formGroup]="myform" class="col-md-12">
+          <div class="d-flex justify-content-around align-items-center">
+            <div><h3>Add Filter</h3></div>
+            <div>   <select class="form-control" formControlName="Kind">
+            <option disabled selected>select Kind</option>
+            <option value="0">None</option>
+            <option value="1">Name</option>
+            <option value="2">Salary</option>
+            <option value="3">Hiring DAte</option>
+          </select></div>
+          </div>
+           <div class="d-flex justify-content-center align-items-center" >
+           
+            <div *ngIf="options.Salary==true || options.hiringDate==true">   <select class="form-control" formControlName="typ">
+            <option disabled selected>select type</option>
+            <option value="0">None</option>
+            <option value="1">After</option>
+            <option value="2">Before</option>
+            <option value="3">Between </option>
+          </select>
+        </div>
+           <div *ngIf="options.Name==true">  <input type="text" class="form-control" placeholder="Write name" formControlName="firstname" >
+        </div>
+  
+          </div>
+          <div class="d-flex justify-content-center align-items-center" >
+            <div *ngIf="type.after==true || type.before" >
+              <input type="number"  class="form-control" formControlName="salaryStart" placeholder="Enter Salary ">
+  
+            </div>
+            <div *ngIf="type.between==true" >
+              <div>
+  
+                <input type="number" class="form-control"  formControlName="salaryStart" placeholder="Enter start Salary ">
+              </div>
+               <div>
+  
+                <input type="number" class="form-control"  formControlName="salaryEnd" placeholder="Enter end Salary ">
+              </div>
+            </div>
+          </div>
+          <div> <button type="submit" class="form-control" (click)="search()">Apply</button></div>
+        </form>
+         
+        </div>
+        
+      </div>
+    </div>
+  </div>

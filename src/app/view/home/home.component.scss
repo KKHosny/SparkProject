@@ -1,0 +1,59 @@
+.home {
+  padding: 1rem 6rem;
+  transition: 0.5s;
+
+  .button {
+    position: relative;
+    .plus {
+      font-size: 32pt;
+      position: absolute;
+      left: 20px;
+      bottom: -9px;
+      color: lightgrey;
+    }
+    .down {
+      font-size: 17pt;
+      position: absolute;
+      right: 23px;
+      top: 1px;
+      color: lightgrey;
+    }
+  }
+  .tables {
+    padding: 1rem 6rem;
+    td {
+      border: none;
+      border-left: 1px lightblue solid;
+    }
+    th {
+      border-left: 1px lightblue solid;
+    }
+    td:last-child {
+      border-right: 1px lightblue solid;
+    }
+    tr:last-child td:last-child {
+      border-bottom-right-radius: 16px;
+    }
+    tr:last-child td:first-child {
+      border-bottom-left-radius: 14px;
+    }
+    th:last-child {
+      border-right: 1px lightblue solid;
+    }
+    tr:first-child th:last-child {
+      border-top-right-radius: 17px;
+    }
+    tr:first-child th:first-child {
+      border-top-left-radius: 17px;
+    }
+    .table {
+      border-collapse: separate;
+      border-spacing: 0px;
+      border-bottom: 1px lightblue solid;
+      border-radius: 16px;
+    }
+  }
+}
+.form-control{
+  margin-bottom: 1rem;
+}

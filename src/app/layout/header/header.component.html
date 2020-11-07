@@ -1,0 +1,83 @@
+<section class="header">
+  <div class="container-fluid">
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" (click)="closeNav()"
+        >&times;</a
+      >
+  
+      <div>
+        <h4>Ahmed</h4>
+      </div>
+      <div>
+  
+        <div class="d-flex justify-content-center align-items-center blocks">
+          <div class="col-md-2"><i class="fas fa-home"></i></div>
+          <div class="col-md-10"><a>Home</a></div>
+        </div>
+        <div class="d-flex justify-content-center align-items-center blocks">
+          <div class="col-md-2"><i class="fas fa-receipt"></i></div>
+          <div class="col-md-10"><a>My Payslip</a></div>
+        </div>
+        <div class="d-flex justify-content-center align-items-center blocks">
+          <div class="col-md-2"><i class="fas fa-hand-holding-usd"></i></div>
+          <div class="col-md-10"><a>My Loans</a></div>
+        </div>
+        <div class="d-flex justify-content-center align-items-center blocks">
+          <div class="col-md-2"><i class="far fa-user"></i></div>
+          <div class="col-md-10"><a>My Profile</a></div>
+        </div>
+        <div class="d-flex justify-content-center align-items-center blocks">
+          <div class="col-md-2"><i class="fas fa-chart-pie"></i></div>
+          <div class="col-md-10"><a>Reports</a></div>
+        </div>
+        <div class="d-flex justify-content-center align-items-center blocks">
+          <div class="col-md-2"><i class="fas fa-cog"></i></div>
+          <div class="col-md-10"><a>settings</a></div>
+        </div>
+      </div>
+      <div class="social">
+        <div><button class="btn button">Website</button></div>
+        <div class="d-flex justify-content-center align-items-center icons">
+          <div class="icon"><i class="fab fa-facebook"></i></div>
+          <div class="icon"><i class="fab fa-linkedin"></i></div>
+          <div class="icon"><i class="fab fa-twitter-square"></i></div>
+        </div>
+  
+      </div>
+    </div>
+  
+    <div id="main" class="d-flex justify-content-between align-items-center">
+      <button class="openbtn" (click)="openNav()">&#9776;</button>
+      <div class="col-md-3 d-flex justify-content-start align-items-center title">
+        <h2>HR User</h2>
+      </div>
+      <div class="lang col-md-4 col-md-5 d-flex justify-content-center align-items-center">
+        <div class="text col-md-5"><h3>Language</h3></div>
+        <div class="col-md-5 d-flex boxs justify-content-center">
+          <div
+            class="w-100 blocks col-md-6 d-flex justify-content-center align-items-center"
+            (click)="opt(0)"
+            [ngClass]="{ active: option.Eng == true }"
+          >
+            <a class="ancor">English</a>
+          </div>
+          <div
+            class="w-100 blocks col-md-6 d-flex justify-content-center align-items-center"
+            (click)="opt(1)"
+            [ngClass]="{ active: option.AR == true }"
+          >
+            <a class="ancor">عربي</a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="icons col-lg-3 col-md-4 d-flex justify-content-center align-items-center"
+      >
+        <div class="icon"><i class="far fa-envelope"></i></div>
+        <div class="icon"><i class="far fa-question-circle"></i></div>
+        <div class="icon"><i class="fas fa-cog"></i></div>
+        <div class="icon"><i class="fas fa-caret-down"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
